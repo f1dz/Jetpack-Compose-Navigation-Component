@@ -90,7 +90,7 @@ fun DetailContent(
             Box {
                 Image(
                     painter = painterResource(image),
-                    contentDescription = null,
+                    contentDescription = "Reward image",
                     contentScale = ContentScale.Crop,
                     modifier = modifier.height(400.dp)
                         .fillMaxWidth()
