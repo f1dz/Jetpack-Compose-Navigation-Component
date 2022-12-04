@@ -16,6 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color.Companion.LightGray
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -90,7 +91,7 @@ fun DetailContent(
             Box {
                 Image(
                     painter = painterResource(image),
-                    contentDescription = null,
+                    contentDescription = "Reward image",
                     contentScale = ContentScale.Crop,
                     modifier = modifier.height(400.dp)
                         .fillMaxWidth()
@@ -99,7 +100,10 @@ fun DetailContent(
                 Icon(
                     imageVector = Icons.Default.ArrowBack,
                     contentDescription = stringResource(R.string.back),
-                    modifier = Modifier.padding(16.dp).clickable { onBackClick() }
+                    modifier = Modifier
+                        .padding(16.dp)
+                        .testTag("BackButton")
+                        .clickable { onBackClick() }
                 )
             }
             Column(

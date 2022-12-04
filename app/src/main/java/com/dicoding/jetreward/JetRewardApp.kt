@@ -2,7 +2,6 @@ package com.dicoding.jetreward
 
 import android.content.Context
 import android.content.Intent
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
@@ -13,9 +12,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.navigation.NavController
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
@@ -127,6 +126,7 @@ private fun BottomBar(
             navigationItem.map { item ->
                 BottomNavigationItem(
                     selected = currentState == item.screen.route,
+                    modifier = Modifier.testTag(item.screen.route),
                     icon = {
                         Icon(
                             imageVector = item.icon,
